@@ -15,6 +15,7 @@ namespace Nhóm_2
         public frmDonVi()
         {
             InitializeComponent();
+            // hello there
         }
         midCoQuanDataContext db = new midCoQuanDataContext();
         private void Form1_Load(object sender, EventArgs e)
@@ -84,6 +85,11 @@ namespace Nhóm_2
                     cboBP.SelectedValue = dv.MaBP;
                 }
             }
+        }
+
+        private void dgvDonVi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
