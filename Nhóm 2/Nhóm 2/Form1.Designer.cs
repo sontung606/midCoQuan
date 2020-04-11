@@ -71,6 +71,7 @@
             this.dgvDonVi.Size = new System.Drawing.Size(801, 178);
             this.dgvDonVi.TabIndex = 13;
             this.dgvDonVi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvDonVi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDonVi_CellContentClick);
             // 
             // MaDV
             // 

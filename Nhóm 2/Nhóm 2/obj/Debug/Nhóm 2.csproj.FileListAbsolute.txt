@@ -7,3 +7,12 @@ E:\Visual studio\Nhóm 2\Nhóm 2\obj\Debug\Nhóm_2.Properties.Resources.resource
 E:\Visual studio\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.csproj.GenerateResource.cache
 E:\Visual studio\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.exe
 E:\Visual studio\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.pdb
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\bin\Debug\Nhóm 2.exe.config
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\bin\Debug\Nhóm 2.exe
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\bin\Debug\Nhóm 2.pdb
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.csprojAssemblyReference.cache
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm_2.frmDonVi.resources
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm_2.Properties.Resources.resources
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.csproj.GenerateResource.cache
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.exe
+C:\Users\Tùng\Desktop\Nhóm 2\Nhóm 2\Nhóm 2\obj\Debug\Nhóm 2.pdb
