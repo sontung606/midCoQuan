@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="midCoQuan" Class="midCoQuanDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SONTUNG;Initial Catalog=midCoQuan;Integrated Security=True" SettingsObjectName="Nhóm_2.Properties.Settings" SettingsPropertyName="midCoQuanConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DonVi" Member="DonVis">
+    <Type Name="DonVi">
+      <Column Name="MaDV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayTL" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MaBP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="BoPhan_DonVi" Member="BoPhan" ThisKey="MaBP" OtherKey="MaBP" Type="BoPhan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BoPhan" Member="BoPhans">
+    <Type Name="BoPhan">
+      <Column Name="MaBP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenBP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BoPhan_DonVi" Member="DonVis" ThisKey="MaBP" OtherKey="MaBP" Type="DonVi" />
+    </Type>
+  </Table>
+</Database>
