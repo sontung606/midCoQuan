@@ -52,7 +52,7 @@ namespace Nhóm_2
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn chắc chắn xóa" + " ", "Exit", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn xóa ?" + " ", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
 
@@ -62,7 +62,7 @@ namespace Nhóm_2
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn chắc chắn thoát ", "Exit", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thoát ?", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();
@@ -89,6 +89,39 @@ namespace Nhóm_2
 
         private void dgvDonVi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            txtMaDV.Enabled = true;
+            txtTenDV.Enabled = true;
+            dtpNgayTL.Enabled = true;
+            dtpNgayTL.Value = DateTime.Now.Date;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string madv = txtMaDV.Text;
+            DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
+            if (dv != null)
+            {
+                MessageBox.Show("Mã đơn vị đã tồn tại.");
+                return;
+            }
+            else
+            {
+                dv = new DonVi();
+                dv.MaDV = txtMaDV.Text;
+                dv.TenDV = txtTenDV.Text;
+                dv.NgayTL = dtpNgayTL.Value;
+                dv.MaBP = cboBP.SelectedValue.ToString();
+                db.DonVis.InsertOnSubmit(dv);
+                db.SubmitChanges();
+                MessageBox.Show("Thêm vào thành công.");
+                string mabophan = cboBP.SelectedValue.ToString();
+                LoadDSDV(mabophan);
+            }
 
         }
     }

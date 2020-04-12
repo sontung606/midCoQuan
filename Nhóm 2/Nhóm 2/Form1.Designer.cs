@@ -119,6 +119,7 @@
             // 
             this.dtpNgayTL.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpNgayTL.CustomFormat = "";
+            this.dtpNgayTL.Enabled = false;
             this.dtpNgayTL.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayTL.Location = new System.Drawing.Point(204, 196);
             this.dtpNgayTL.Name = "dtpNgayTL";
@@ -148,6 +149,7 @@
             this.btnThoat.TabIndex = 42;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu
             // 
@@ -159,6 +161,7 @@
             this.btnLuu.TabIndex = 41;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -170,6 +173,7 @@
             this.btnXoa.TabIndex = 40;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSuaLai
             // 
@@ -203,6 +207,7 @@
             this.btnThem.TabIndex = 37;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label4
             // 
@@ -251,6 +256,7 @@
             // txtTenDV
             // 
             this.txtTenDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtTenDV.Enabled = false;
             this.txtTenDV.Location = new System.Drawing.Point(203, 153);
             this.txtTenDV.Name = "txtTenDV";
             this.txtTenDV.Size = new System.Drawing.Size(172, 20);
@@ -259,6 +265,7 @@
             // txtMaDV
             // 
             this.txtMaDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMaDV.Enabled = false;
             this.txtMaDV.Location = new System.Drawing.Point(203, 122);
             this.txtMaDV.Name = "txtMaDV";
             this.txtMaDV.Size = new System.Drawing.Size(172, 20);
