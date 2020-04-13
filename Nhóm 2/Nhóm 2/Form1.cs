@@ -15,7 +15,7 @@ namespace Nhóm_2
         public frmDonVi()
         {
             InitializeComponent();
-            // hello there
+            // lam nut nao bro ? :)) con bao nhieu 
         }
         midCoQuanDataContext db = new midCoQuanDataContext();
         private void Form1_Load(object sender, EventArgs e)
@@ -104,7 +104,70 @@ namespace Nhóm_2
 
         private void dgvDonVi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+        // nut sua 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string madv = txtMaDV.Text;
+            DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
+            if (dv != null)
+            {   // co nv ->sua
+                dv.TenDV = txtTenDV.Text;
+                dv.NgayTL = dtpNgayTL.Value;
+                dv.MaBP = cboBP.SelectedValue.ToString();
+                db.SubmitChanges();
 
+                //load lai data
+                MessageBox.Show("Sửa thành công.");
+                string mabophan = cboBP.SelectedValue.ToString();
+                LoadDSDV(mabophan);
+                    
+            }
+            else
+            {
+                MessageBox.Show("Lỗi","Mã đơn vị không tồn tại.",
+                    MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Thông báo", "Bạn muốn xóa dữ liệu này ?",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if  (rs == DialogResult.Yes)
+            {   //hàm xóa
+                string madv = txtMaDV.Text;
+                if ( madv  == "")
+                {
+                    DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
+                    if ( dv != null)
+                    {
+                        //co dv -> xoa dv
+                        db.DonVis.DeleteOnSubmit(dv);
+                        db.SubmitChanges();
+
+                        //load lai data 
+                        string mabophan = cboBP.SelectedValue.ToString();
+                        LoadDSDV(mabophan);
+                        //thông báo
+                        MessageBox.Show("Xóa thành công");
+                    }  
+                    else
+                    {
+                        // k co don vi
+                        MessageBox.Show("Không tồn tại đơn vị", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }    
+                }    
+
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
