@@ -190,6 +190,7 @@
             this.btnSuaLai.TabIndex = 39;
             this.btnSuaLai.Text = "Tải lại";
             this.btnSuaLai.UseVisualStyleBackColor = true;
+            this.btnSuaLai.Click += new System.EventHandler(this.btnSuaLai_Click);
             // 
             // btnSua
             // 
@@ -264,7 +265,7 @@
             this.txtTenDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTenDV.Enabled = false;
             this.txtTenDV.Location = new System.Drawing.Point(169, 148);
-            this.txtTenDV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenDV.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenDV.Name = "txtTenDV";
             this.txtTenDV.Size = new System.Drawing.Size(172, 20);
             this.txtTenDV.TabIndex = 32;
@@ -274,7 +275,7 @@
             this.txtMaDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMaDV.Enabled = false;
             this.txtMaDV.Location = new System.Drawing.Point(169, 123);
-            this.txtMaDV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaDV.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaDV.Name = "txtMaDV";
             this.txtMaDV.Size = new System.Drawing.Size(172, 20);
             this.txtMaDV.TabIndex = 31;

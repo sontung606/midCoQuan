@@ -12,10 +12,11 @@ namespace Nhóm_2
 {
     public partial class frmDonVi : Form
     {
+        bool trangthai;// false là thêm , true là sửa
+
         public frmDonVi()
         {
             InitializeComponent();
-            // lam nut nao bro ? :)) con bao nhieu 
         }
         midCoQuanDataContext db = new midCoQuanDataContext();
         private void Form1_Load(object sender, EventArgs e)
@@ -26,6 +27,7 @@ namespace Nhóm_2
             cboBP.SelectedIndex = 0;
             string mabophan = cboBP.SelectedValue.ToString();
             LoadDSDV(mabophan);
+
         }
         private void cboBP_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -33,51 +35,27 @@ namespace Nhóm_2
             LoadDSDV(mabophan);
         }
 
+
         private void LoadDSDV(string mabophan)
         {
-            dgvDonVi.DataSource = db.DonVis.Where(p => p.MaBP == mabophan)
-                .Select(p => new
-                {
-                    p.MaDV,
-                    p.TenDV,
-                    p.NgayTL,
-                    p.MaBP
-                }); ;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Bạn chắc chắn xóa" + " ", "Exit", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            if (trangthai == false)
             {
-                string madv = txtMaDV.Text;
-                DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
-                if (dv != null)
-                {
-                    db.DonVis.DeleteOnSubmit(dv);
-                    db.SubmitChanges();
-                    MessageBox.Show("Đã xóa thành công");
-                    string mabophan = cboBP.SelectedValue.ToString();
-                    LoadDSDV(mabophan);
-
-                }
-                else
-                {
-                    MessageBox.Show("Thông báo", "Lỗi xóa: Không tồn tại đơn vị này",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dgvDonVi.DataSource = db.DonVis.Where(p => p.MaBP == mabophan)
+                               .Select(p => new
+                               {
+                                   p.MaDV,
+                                   p.TenDV,
+                                   p.NgayTL,
+                                   p.MaBP
+                               }); ;
             }
-
         }
+
+
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thoát ?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn thoát ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
                 Application.Exit();
@@ -104,65 +82,48 @@ namespace Nhóm_2
 
         private void dgvDonVi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
         // nut sua 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string madv = txtMaDV.Text;
-            DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
-            if (dv != null)
-            {   // co nv ->sua
-                dv.TenDV = txtTenDV.Text;
-                dv.NgayTL = dtpNgayTL.Value;
-                dv.MaBP = cboBP.SelectedValue.ToString();
-                db.SubmitChanges();
-
-                //load lai data
-                MessageBox.Show("Sửa thành công.");
-                string mabophan = cboBP.SelectedValue.ToString();
-                LoadDSDV(mabophan);
-                    
-            }
-            else
-            {
-                MessageBox.Show("Lỗi","Mã đơn vị không tồn tại.",
-                    MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
+            trangthai = true;
+            txtTenDV.Enabled = true;
+            cboBP.Enabled = true;
+            dtpNgayTL.Enabled = true;
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
-      
 
-        private void btnXoa_Click_1(object sender, EventArgs e)
+
+        private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult rs = MessageBox.Show("Thông báo", "Bạn muốn xóa dữ liệu này ?",
+            DialogResult rs = MessageBox.Show("Bạn muốn xóa dữ liệu này ?", "Thông báo",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if  (rs == DialogResult.Yes)
+            if (rs == DialogResult.Yes)
             {   //hàm xóa
                 string madv = txtMaDV.Text;
-                if ( madv  == "")
-                {
-                    DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
-                    if ( dv != null)
-                    {
-                        //co dv -> xoa dv
-                        db.DonVis.DeleteOnSubmit(dv);
-                        db.SubmitChanges();
 
-                        //load lai data 
-                        string mabophan = cboBP.SelectedValue.ToString();
-                        LoadDSDV(mabophan);
-                        //thông báo
-                        MessageBox.Show("Xóa thành công");
-                    }  
-                    else
-                    {
-                        // k co don vi
-                        MessageBox.Show("Không tồn tại đơn vị", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }    
-                }    
+                DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
+                if (dv != null)
+                {
+                    //co dv -> xoa dv
+                    db.DonVis.DeleteOnSubmit(dv);
+                    db.SubmitChanges();
+                    //load lai data 
+                    string mabophan = cboBP.SelectedValue.ToString();
+                    LoadDSDV(mabophan);
+                    //thông báo
+                    MessageBox.Show("Xóa thành công");
+                }
+                else
+                {
+                    // k co don vi
+                    MessageBox.Show("Không tồn tại đơn vị", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
         }
@@ -172,8 +133,10 @@ namespace Nhóm_2
             txtMaDV.Enabled = true;
             txtTenDV.Enabled = true;
             dtpNgayTL.Enabled = true;
-
-            //Set textbox empty 
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            trangthai = false;
+            // Set textbox empty 
             txtMaDV.Text = "";
             txtTenDV.Text = "";
 
@@ -182,27 +145,95 @@ namespace Nhóm_2
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string madv = txtMaDV.Text;
-            DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
-            if (dv != null)
+            try
             {
-                MessageBox.Show("Mã đơn vị đã tồn tại.");
-                return;
-            }
-            else
-            {
-                dv = new DonVi();
-                dv.MaDV = txtMaDV.Text;
-                dv.TenDV = txtTenDV.Text;
-                dv.NgayTL = dtpNgayTL.Value;
-                dv.MaBP = cboBP.SelectedValue.ToString();
-                db.DonVis.InsertOnSubmit(dv);
-                db.SubmitChanges();
-                MessageBox.Show("Thêm vào thành công.");
+                DonVi dv = db.DonVis.Where(p => p.MaDV == txtMaDV.Text).SingleOrDefault();
+                if (trangthai == false)// trạng thái thêm
+                {
+                    //// bắt lỗi tồn tại maDV
+                    if (dv != null)
+                    {
+                        MessageBox.Show("Mã đơn vị đã tồn tại.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    dv = new DonVi();
+                    dv.MaDV = txtMaDV.Text;
+                    dv.TenDV = txtTenDV.Text;
+                    dv.NgayTL = dtpNgayTL.Value;
+                    dv.MaBP = cboBP.SelectedValue.ToString();
+                    // nhập dữ liệu vào database
+                    if (validition(dv) == true)
+                    {
+                        db.DonVis.InsertOnSubmit(dv);
+                        db.SubmitChanges();
+                        MessageBox.Show("Thêm vào thành công.");
+                    }
+                }
+
+                if (trangthai == true) // trạng thái sửa
+                {
+                    dv.TenDV = txtTenDV.Text;
+                    dv.NgayTL = dtpNgayTL.Value;
+                    dv.MaBP = cboBP.SelectedValue.ToString();
+                    if (validition(dv) == true)
+                    {
+                        db.SubmitChanges();
+                        MessageBox.Show("Sửa thành công.");
+                        trangthai = false;
+                    }
+                }
                 string mabophan = cboBP.SelectedValue.ToString();
                 LoadDSDV(mabophan);
+                btnXoa.Enabled = true;
+                btnSua.Enabled = true;
+                btnThem.Enabled = true;
+                txtMaDV.Enabled = false;
+                txtTenDV.Enabled = false;
+                dtpNgayTL.Enabled = false;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thêm mới thất bại.", "Error",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool validition(DonVi dv) // bắt lỗi
+        {
+            // bắt lỗi maDV để trống
+            if (dv.MaDV == "")
+            {
+                MessageBox.Show("Mã đơn vị không được để trống.", "Warning",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // bắt lỗi ngày thành lập 
+            if (dv.NgayTL > DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày thành lập không hợp lệ.", "Warning",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
 
+            return true;
+        }
+
+        private void btnSuaLai_Click(object sender, EventArgs e)
+        {
+            txtMaDV.Enabled = false;
+            txtTenDV.Enabled = false;
+            dtpNgayTL.Enabled = false;
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+
+            txtMaDV.Text = "";
+            txtTenDV.Text = "";
+            dtpNgayTL.Value = DateTime.Now.Date;
         }
     }
 
