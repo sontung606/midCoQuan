@@ -132,10 +132,7 @@ namespace Nhóm_2
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
@@ -175,6 +172,11 @@ namespace Nhóm_2
             txtMaDV.Enabled = true;
             txtTenDV.Enabled = true;
             dtpNgayTL.Enabled = true;
+
+            //Set textbox empty 
+            txtMaDV.Text = "";
+            txtTenDV.Text = "";
+
             dtpNgayTL.Value = DateTime.Now.Date;
         }
 
