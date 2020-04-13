@@ -52,10 +52,25 @@ namespace Nhóm_2
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn xóa ?" + " ", "Exit", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn xóa" + " ", "Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
+                string madv = txtMaDV.Text;
+                DonVi dv = db.DonVis.Where(p => p.MaDV == madv).SingleOrDefault();
+                if (dv != null)
+                {
+                    db.DonVis.DeleteOnSubmit(dv);
+                    db.SubmitChanges();
+                    MessageBox.Show("Đã xóa thành công");
+                    string mabophan = cboBP.SelectedValue.ToString();
+                    LoadDSDV(mabophan);
 
+                }
+                else
+                {
+                    MessageBox.Show("Thông báo", "Lỗi xóa: Không tồn tại đơn vị này",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
