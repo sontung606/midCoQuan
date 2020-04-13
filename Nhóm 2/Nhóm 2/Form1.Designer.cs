@@ -39,7 +39,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSuaLai = new System.Windows.Forms.Button();
+            this.btnTaiLai = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -180,17 +180,17 @@
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnSuaLai
+            // btnTaiLai
             // 
-            this.btnSuaLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSuaLai.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSuaLai.Location = new System.Drawing.Point(536, 166);
-            this.btnSuaLai.Name = "btnSuaLai";
-            this.btnSuaLai.Size = new System.Drawing.Size(82, 33);
-            this.btnSuaLai.TabIndex = 39;
-            this.btnSuaLai.Text = "Tải lại";
-            this.btnSuaLai.UseVisualStyleBackColor = true;
-            this.btnSuaLai.Click += new System.EventHandler(this.btnSuaLai_Click);
+            this.btnTaiLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTaiLai.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnTaiLai.Location = new System.Drawing.Point(536, 166);
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.Size = new System.Drawing.Size(82, 33);
+            this.btnTaiLai.TabIndex = 39;
+            this.btnTaiLai.Text = "Tải lại";
+            this.btnTaiLai.UseVisualStyleBackColor = true;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnSua
             // 
@@ -291,7 +291,7 @@
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSuaLai);
+            this.Controls.Add(this.btnTaiLai);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label4);
@@ -322,7 +322,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSuaLai;
+        private System.Windows.Forms.Button btnTaiLai;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label4;

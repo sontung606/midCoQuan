@@ -221,7 +221,7 @@ namespace Nhóm_2
             return true;
         }
 
-        private void btnSuaLai_Click(object sender, EventArgs e)
+        private void btnTaiLai_Click(object sender, EventArgs e)
         {
             txtMaDV.Enabled = false;
             txtTenDV.Enabled = false;
@@ -234,6 +234,7 @@ namespace Nhóm_2
             txtMaDV.Text = "";
             txtTenDV.Text = "";
             dtpNgayTL.Value = DateTime.Now.Date;
+            trangthai = false;
         }
     }
 
