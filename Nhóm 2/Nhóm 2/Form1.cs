@@ -93,6 +93,7 @@ namespace Nhóm_2
             dtpNgayTL.Enabled = true;
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
+            btnSua.Enabled = false;
         }
 
 
@@ -135,6 +136,7 @@ namespace Nhóm_2
             dtpNgayTL.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            btnThem.Enabled = false;
             trangthai = false;
             // Set textbox empty 
             txtMaDV.Text = "";
