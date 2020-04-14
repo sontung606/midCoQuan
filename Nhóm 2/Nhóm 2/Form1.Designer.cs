@@ -114,9 +114,9 @@
             // 
             this.cboBP.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboBP.FormattingEnabled = true;
-            this.cboBP.Location = new System.Drawing.Point(169, 81);
+            this.cboBP.Location = new System.Drawing.Point(181, 84);
             this.cboBP.Name = "cboBP";
-            this.cboBP.Size = new System.Drawing.Size(172, 21);
+            this.cboBP.Size = new System.Drawing.Size(205, 21);
             this.cboBP.TabIndex = 45;
             this.cboBP.SelectedIndexChanged += new System.EventHandler(this.cboBP_SelectedIndexChanged);
             // 
@@ -126,7 +126,7 @@
             this.dtpNgayTL.CustomFormat = "";
             this.dtpNgayTL.Enabled = false;
             this.dtpNgayTL.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayTL.Location = new System.Drawing.Point(204, 196);
+            this.dtpNgayTL.Location = new System.Drawing.Point(181, 179);
             this.dtpNgayTL.Name = "dtpNgayTL";
             this.dtpNgayTL.Size = new System.Drawing.Size(205, 20);
             this.dtpNgayTL.TabIndex = 44;
@@ -221,7 +221,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 203);
+            this.label4.Location = new System.Drawing.Point(50, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 36;
@@ -232,7 +232,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 153);
+            this.label3.Location = new System.Drawing.Point(50, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 35;
@@ -243,7 +243,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 120);
+            this.label2.Location = new System.Drawing.Point(50, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 34;
@@ -254,7 +254,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(49, 79);
+            this.label1.Location = new System.Drawing.Point(50, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 33;
@@ -264,20 +264,20 @@
             // 
             this.txtTenDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTenDV.Enabled = false;
-            this.txtTenDV.Location = new System.Drawing.Point(169, 148);
+            this.txtTenDV.Location = new System.Drawing.Point(181, 148);
             this.txtTenDV.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenDV.Name = "txtTenDV";
-            this.txtTenDV.Size = new System.Drawing.Size(172, 20);
+            this.txtTenDV.Size = new System.Drawing.Size(205, 20);
             this.txtTenDV.TabIndex = 32;
             // 
             // txtMaDV
             // 
             this.txtMaDV.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMaDV.Enabled = false;
-            this.txtMaDV.Location = new System.Drawing.Point(169, 123);
+            this.txtMaDV.Location = new System.Drawing.Point(181, 118);
             this.txtMaDV.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaDV.Name = "txtMaDV";
-            this.txtMaDV.Size = new System.Drawing.Size(172, 20);
+            this.txtMaDV.Size = new System.Drawing.Size(205, 20);
             this.txtMaDV.TabIndex = 31;
             // 
             // frmDonVi
